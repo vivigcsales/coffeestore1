@@ -1,0 +1,278 @@
+COMEÇO DO CÓDIGO!!!!!!!!
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonBrew&Co. - Onde a Magia Encontra o Café</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Importação das Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Emilys+Candy&family=Glass+Antiqua&family=Amatic+SC:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Configuração de cores e fontes customizadas (Retorno à estética original)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // ROXO PROFUNDO
+                        'magico-roxo': '#4D2C91', 
+                        'magico-roxo-dark': '#3A1F6E', // Roxo escuro para contraste/sombras
+                        'magico-dourado': '#FFE642', // Dourado principal para destaque
+                        'fundo-escuro': '#0F172A', // Fundo escuro (Deep Blue)
+                        'bg-koffee': '#1E1E1E', // Cor escura do rodapé inferior
+                    },
+                    fontFamily: {
+                        // Títulos Maiores (h1, h2)
+                        'tittle-large': ['Emilys Candy', 'cursive'],
+                        // Contatos, Email, Número, Rodapé
+                        'contacts': ['Cinzel', 'serif'],
+                        // Informações Extras, Descrições do Menu
+                        'description': ['Glass Antiqua', 'cursive'],
+                         // Fonte padrão de fallback
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        /* Estilos customizados para aplicar as fontes e o design */
+        body {
+            font-family: 'Inter', sans-serif;
+            padding-top: 80px; /* Espaço para o header fixo */
+            background-color: #0F172A; /* fundo-escuro */
+        }
+        
+        /* Aplicações de Fontes Customizadas */
+        .hero-title, .section-title h2, .featured-card-title { font-family: 'Emilys Candy', cursive; }
+        .hero-subtitle, .about-text { font-family: 'Glass Antiqua', cursive; }
+        .footer-info, .footer-widget-area h3, .review-author { font-family: 'Cinzel', serif; }
+
+        /* Estilo para o banner Hero (Retornando o fundo fixo e o overlay roxo) */
+        .hero-area {
+            background-image: url('https://placehold.co/1920x800/1e293b/FFE642?text=MoonBrew%26Co.+%7C+Coffee+%26+Magic');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .hero-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(77, 44, 145, 0.6); /* magico-roxo com transparência */
+            z-index: 1;
+        }
+
+        /* Estilo para o botão principal (Shadows) */
+        .main-btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(77, 44, 145, 0.5); /* Sombra roxa inicial */
+        }
+        .main-btn:hover {
+            box-shadow: 0 8px 20px rgba(255, 230, 66, 0.7); /* Sombra dourada no hover */
+            transform: translateY(-2px);
+        }
+        
+        /* Estilo para cards em destaque */
+        .featured-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #3A1F6E; /* Borda roxa escura */
+        }
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 230, 66, 0.3); /* Sombra dourada no hover */
+        }
+    </style>
+
+<body class="bg-fundo-escuro text-gray-200">
+
+    <!-- CABEÇALHO / HEADER (Fixado e Roxo) -->
+    <header class="fixed top-0 w-full z-50 bg-magico-roxo shadow-xl shadow-magico-roxo-dark/50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- Logo -->
+                <div class="logo flex items-center">
+                    <a href="index.html" title="MoonBrew&Co. Home">
+                        <img src="logo.jpg" alt="MoonBrew&Co. Logo" class="h-10 w-auto rounded-md shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/40x40/FFD700/1A1A2E?text=MB'">
+                    </a>
+                </div>
+                
+                <!-- Navegação e Busca -->
+                <div class="flex items-center space-x-6">
+                    <!-- Menu Principal (Desktop) -->
+                    <nav class="hidden md:flex space-x-6 main-menu">
+                        <!-- Link Home Ativo -->
+                        <a href="index.html" class="header-nav-link text-magico-dourado font-extrabold transition duration-200 border-b-2 border-magico-dourado pb-1">Home</a>
+                        <a href="menu.html" class="header-nav-link text-white hover:text-magico-dourado font-medium transition duration-200">Menu</a>
+                        <a href="contact.html" class="header-nav-link text-white hover:text-magico-dourado font-medium transition duration-200">Contato</a>
+                    </nav>
+
+                    <!-- Botão de Ação / Pedido -->
+                    <a href="menu.html" class="bg-magico-dourado text-magico-roxo font-bold py-2 px-4 rounded-full transition duration-300 hover:bg-white border border-magico-dourado hidden sm:block">
+                        Faça seu Pedido
+                    </a>
+
+                    <!-- Menu Mobile Button -->
+                    <button class="text-white hover:text-magico-dourado md:hidden p-2 rounded-lg mobile-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO PRODUTOS EM DESTAQUE (Menu Preview) -->
+    <section class="featured-area py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Título da Seção (Emilys Candy) -->
+            <div class="text-center max-w-3xl mx-auto mb-16 section-title">
+                <h2 class="text-4xl md:text-5xl font-title-large text-magico-dourado mb-4 tracking-wider">Nossas Poções em Destaque</h2>
+                <!-- Linha de separação roxa -->
+                <img src="https://placehold.co/150x5/4D2C91/4D2C91?text=." alt="" class="mx-auto my-2 rounded-full">
+                <!-- Descrição (Glass Antiqua) -->
+                <p class="text-gray-400 text-lg font-description mt-4">Os itens mais populares do nosso cardápio, testados e aprovados pelos magos e bruxas de toda a região.</p>
+            </div>
+            
+            <!-- Cards de Produtos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Poção do Eclipse -->
+                <div class="featured-card bg-gray-800 p-6 rounded-xl text-center shadow-xl shadow-gray-900/50">
+                    <img src="menu.images/milkshake.png" alt="Imagem de uma Poção do Eclipse" class="w-full h-auto rounded-lg mb-4 object-cover border border-magico-dourado">
+                    <h3 class="featured-card-title text-2xl text-magico-dourado mb-2">Poção do Eclipse</h3>
+                    <p class="text-gray-400 mb-4 font-description">Um milkshake de espresso duplo infusionado com especiarias raras e um toque de névoa mágica.</p>
+                    <span class="text-2xl font-contacts text-white font-bold block">R$ 18.00</span>
+                </div>
+                
+                <!-- Card 2: Chá Lunar -->
+                <div class="featured-card bg-gray-800 p-6 rounded-xl text-center shadow-xl shadow-gray-900/50">
+                    <img src="menu.images/chalunar.png" alt="Imagem de um Chá Lunar" class="w-full h-auto rounded-lg mb-4 object-cover border border-magico-dourado">
+                    <h3 class="featured-card-title text-2xl text-magico-dourado mb-2">Chá Lunar</h3>
+                    <p class="text-gray-400 mb-4 font-description">Chá de camomila e jasmim, preparado sob a luz da lua cheia para máxima tranquilidade.</p>
+                    <span class="text-2xl font-contacts text-white font-bold block">R$ 15.00</span>
+                </div>
+                
+                <!-- Card 3: Bolo Estelar -->
+                <div class="featured-card bg-gray-800 p-6 rounded-xl text-center shadow-xl shadow-gray-900/50">
+                    <img src="menu.images/muffin.png" alt="Imagem de um Muffin Estelar" class="w-full h-auto rounded-lg mb-4 object-cover border border-magico-dourado">
+                    <h3 class="featured-card-title text-2xl text-magico-dourado mb-2">Muffin Estelar</h3>
+                    <p class="text-gray-400 mb-4 font-description">Muffin de massa roxa com cobertura de cream cheese e pedaços de estrela cadente comestível.</p>
+                    <span class="text-2xl font-contacts text-white font-bold block">R$ 22.00</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                 <a href="menu.html" class="main-btn bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-extrabold py-3 px-10 rounded-full transition duration-300 border-2 border-magico-dourado">
+                    Ver Menu Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVALIAÇÕES DOS CLIENTES (Adicionada antes do rodapé) -->
+    <section id="avaliacoes" class="bg-fundo-escuro py-20 border-t border-magico-roxo-dark">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h1 class="text-4xl font-title-large text-center text-magico-dourado mb-12 border-b-2 border-magico-roxo pb-2 inline-block mx-auto block w-fit">O que dizem nossos clientes</h1>
+            
+            <!-- Testemunho 1 -->
+            <div class="p-8 mb-6 bg-gray-900 rounded-xl shadow-2xl border border-magico-dourado/50 text-center transform hover:scale-[1.01] transition duration-300 cursor-pointer">
+                <div class="text-3xl text-magico-dourado mb-4">⭐⭐⭐⭐⭐</div>
+                <blockquote class="italic text-gray-300 text-lg mb-6 font-description">
+                    "Simplesmente mágico! Ambiente incrível, a equipe é super atenciosa e os produtos de primeira. A MoonBrew é para todos os amantes de café e fantasia."
+                </blockquote>
+                <h4 class="font-bold text-magico-dourado review-author">- Cliente Encantado</h4>
+            </div>
+
+            <!-- Testemunho 2 -->
+            <div class="p-8 mb-6 bg-gray-900 rounded-xl shadow-2xl border border-magico-dourado/50 text-center transform hover:scale-[1.01] transition duration-300 cursor-pointer">
+                <div class="text-3xl text-magico-dourado mb-4">⭐⭐⭐⭐⭐</div>
+                <blockquote class="italic text-gray-300 text-lg mb-6 font-description">
+                    "Um lugar incrível para ir para outro mundo, mergulhar em um bom livro e desfrutar de um café delicioso."
+                </blockquote>
+                <h4 class="font-bold text-magico-dourado review-author">- Cliente Apreciador</h4>
+            </div>
+
+            <!-- CTA para mais avaliações -->
+            <div class="text-center mt-10">
+                <a href="#" class="text-magico-roxo font-bold hover:text-magico-dourado transition duration-300 text-lg font-contacts">
+                    Leia todas as nossas 500+ avaliações &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- RODAPÉ / FOOTER -->
+    <section class="footer-area bg-gray-900 border-t-4 border-magico-roxo-dark">
+        <div class="container mx-auto px-4 py-16 footer-widget-area">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-400">
+                
+                <!-- Col 1: Sobre -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Sobre a MoonBrew</h3>
+                    <p class="text-sm leading-relaxed font-description">Bem-vindo à nossa cafeteria, onde o aroma do café fresco se mistura com o conforto de um bom livro. Nossa missão é proporcionar um espaço acolhedor e mágico.</p>
+                </div>
+
+                <!-- Col 2: Contato (Cinzel) -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Contato</h3>
+                    <div class="space-y-3 text-sm font-contacts footer-info">
+                        <p class="flex items-center space-x-2"><span class="text-magico-dourado">📧</span><span class="text-white">coffeemoonbrew@outlook.com</span></p>
+                        <p class="flex items-center space-x-2"><span class="text-magico-dourado">📞</span><span class="text-white">(11) 1234-5678</span></p>
+                        <p class="flex items-center space-x-2"><span class="text-magico-dourado">🏠</span><span class="text-white">Av. dos Sonhos, 1508, Oz</span></p>
+                    </div>
+                </div>
+
+                <!-- Col 3: Funcionamento (Cinzel) -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Funcionamento</h3>
+                    <p class="text-sm mb-4 font-description">Veja nosso horário de funcionamento abaixo:</p>
+                    <div class="space-y-2 text-sm font-contacts footer-info">
+                        <p>Segunda - Sexta ................. 08:30 às 17:30</p>
+                        <p>Sábado ................. 10:30 às 17:30</p>
+                        <p class="text-red-400 font-bold">Domingo ................. Fechado</p>
+                    </div>
+                </div>
+
+                <!-- Col 4: Boletim / Newsletter -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Boletim</h3>
+                    <p class="text-sm mb-4 font-description">Inscreva-se para receber nossas novidades e promoções:</p>
+                    <form action="#" class="flex space-x-2 newsletter-form">
+                        <input type="email" id="mc-email" placeholder="Inscreva-se pelo seu email" class="w-full p-2 text-sm bg-gray-700 border border-magico-roxo rounded-lg text-white" required>
+                        <button type="submit" id="mc-button" class="bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-bold py-2 px-4 rounded-lg transition duration-300 text-sm flex-shrink-0 border border-magico-dourado default-btn">
+                            <span>Inscrever</span>
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 flex space-x-4 text-2xl text-magico-dourado footer-links">
+                        <!-- Ícones Placeholder para redes sociais -->
+                        <a href="#" class="hover:text-white transition" aria-label="TikTok">
+                            <span title="TikTok">🌌</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram">
+                            <span title="Instagram">✨</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Twitter">
+                            <span title="Twitter">🔮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright Bar (Cinzel) -->
+        <div class="bg-bg-koffee py-4 border-t border-gray-800 footer-text-area">
+            <div class="container mx-auto px-4 text-center text-sm text-gray-500 font-contacts">
+                <span>&copy; Moon Brew&Co 2025. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonBrew&Co. - Contato</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Importação das Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Emilys+Candy&family=Glass+Antiqua&family=Amatic+SC:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Configuração de cores customizadas
+        tailwind.config = {
+            theme: {
+                extend: { 
+                    colors: {
+                        'magico-roxo': '#4D2C91', // Roxo principal
+                        'magico-roxo-dark': '#7824FF', // Roxo escuro para contraste
+                        'magico-dourado': '#FFD700', // Dourado principal para destaque
+                        'fundo-escuro': '#0F172A', // Fundo escuro (Deep Blue)
+                        'bg-koffee': '#1E1E1E', // Cor escura do rodapé inferior
+                    },
+                    fontFamily: {
+                        // Títulos Maiores (h1, h2)
+                        'title-large': ['Emilys Candy', 'cursive'],
+                        // Contatos, Email, Número, Rodapé
+                        'contacts': ['Cinzel', 'serif'], 
+                        // Informações Extras, Descrições do Menu
+                        'description': ['Glass Antiqua', 'cursive'],
+                        // Placeholders
+                        'placeholder': ['Amatic SC', 'cursive'],
+                        // Fonte padrão de fallback
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        /* Estilos customizados para aplicar as fontes e o design */
+        body {
+            font-family: 'Inter', sans-serif;
+            padding-top: 80px; /* Espaço para o header fixo */
+        }
+        
+        /* Aplicações de Fontes Customizadas */
+        .section-title h2, .breadcrumb-text h3 { font-family: 'Emilys Candy', cursive; }
+        .contact-detail-title { font-family: 'Cinzel', serif; }
+        .contact-detail-text, .nav-white { font-family: 'Glass Antiqua', cursive; }
+        .footer-info, .footer-widget-area h3 { font-family: 'Cinzel', serif; }
+
+        
+        /* Estilo para Placeholders */
+        .header-search::placeholder, #mc-email::placeholder, .form-input::placeholder, .form-textarea::placeholder {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        /* Estilo para o banner (Breadcrumb) */
+        .breadcrumb-area {
+            background-image: url('images/breadcrumbcontact.png');
+            background-size: cover;
+        }
+        
+        /* Efeito de overlay roxo */
+        .overlay-2 {
+            position: relative;
+        }
+        .overlay-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(120, 36, 255, 0.7); /* magico-roxo com transparência */
+            z-index: 1;
+        }
+        .breadcrumb-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Estilo para inputs e textarea */
+        .form-input, .form-textarea {
+            background-color: #1a233b; /* Fundo escuro sutil para inputs */
+            border: 1px solid #7824FF; /* Borda roxa padrão */
+            transition: all 0.3s ease;
+        }
+        .form-input:focus, .form-textarea:focus {
+            border-color: #FFE642; /* Borda dourada no foco */
+            box-shadow: 0 0 8px rgba(255, 230, 66, 0.5); /* Sombra dourada no foco */
+            outline: none;
+        }
+        
+        /* Estilo para o botão de envio */
+        .submit-btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(120, 36, 255, 0.5); /* Sombra roxa inicial */
+        }
+        .submit-btn:hover {
+            box-shadow: 0 8px 20px rgba(255, 230, 66, 0.7); /* Sombra dourada no hover */
+            transform: translateY(-2px);
+       
+        #logo {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            margin: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-fundo-escuro text-gray-200">
+ <!-- CABEÇALHO / HEADER (Tema Roxo e Dourado) -->
+    <header class="bg-magico-roxo bg-opacity-90 shadow-2xl fixed top-0 w-full z-50 transition duration-300 border-b border-magico-dourado/100">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center py-4">
+
+            <!-- Logo -->
+             <div class="logo flex items-center">
+    <a href="index.html" title="MoonBrew&Co. Home"><img id="logo" src="images/logotopo.png" alt="MoonBrew&Co." class="h-20 w-auto">
+    </a>
+</div>
+            
+            <!-- Menu de Navegação  -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Home</a>
+                <a href="menu.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Menu</a>
+                <a href="contact.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Contato</a>
+            </nav>
+            
+            <!-- Botão de Menu Mobile/Busca -->
+            <button class="text-white hover:text-magico-dourado md:hidden p-2 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+                    
+                    <!-- Menu Mobile Button -->
+                    <button class="text-white hover:text-magico-dourado md:hidden p-2 rounded-lg mobile-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB / TÍTULO DA PÁGINA (Emilys Candy) -->
+    <section class="breadcrumb-area overlay-2 pt-20 pb-20 md:py-32 flex items-center justify-center text-center">
+        <div class="container mx-auto px-4 relative z-20">
+            <div class="breadcrumb-text">
+                <h3 class="text-5xl md:text-6xl font-title-large text-magico-dourado mb-4 uppercase tracking-widest">Entre em Contato</h3>
+                <div class="breadcrumb-bar text-lg font-contacts">
+                    <ul class="flex justify-center space-x-2">
+                        <li><a href="index.html" class="text-white hover:text-magico-dourado transition">Home</a></li>
+                        <li class="text-magico-dourado">/ Contato</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA PRINCIPAL DE CONTATO -->
+    <section class="contact-area py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            
+            <!-- Título da Seção (Emilys Candy) -->
+            <div class="text-center max-w-3xl mx-auto mb-16 section-title">
+                <h2 class="text-4xl md:text-5xl font-title-large text-magico-dourado mb-4 tracking-wider">Fale com a MoonBrew&Co.</h2>
+                <!-- Linha de separação roxa -->
+                <img src="https://placehold.co/150x5/7824FF/7824FF?text=." alt="" class="mx-auto my-2 rounded-full">
+                <!-- Descrição (Glass Antiqua) -->
+                <p class="text-gray-400 text-lg font-description mt-4">Estamos sempre prontos para responder suas perguntas mágicas, receber sugestões ou organizar seu evento especial.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
+                
+                <!-- Detalhe de Contato 1: Localização -->
+                <div class="p-6 rounded-xl border-2 border-magico-roxo text-center hover:shadow-xl hover:shadow-magico-roxo-dark/30 transition duration-300">
+                    <div class="text-5xl text-magico-dourado mb-4">🏠</div>
+                    <h3 class="text-xl font-bold mb-2 contact-detail-title">NOSSO ENDEREÇO MÁGICO</h3>
+                    <p class="text-gray-400 contact-detail-text">Av. dos Sonhos, 1508 - Oz, Terra Média</p>
+                </div>
+                
+                <!-- Detalhe de Contato 2: Telefone -->
+                <div class="p-6 rounded-xl border-2 border-magico-roxo text-center hover:shadow-xl hover:shadow-magico-roxo-dark/30 transition duration-300">
+                    <div class="text-5xl text-magico-dourado mb-4">📞</div>
+                    <h3 class="text-xl font-bold mb-2 contact-detail-title">LIGUE PARA NÓS</h3>
+                    <p class="text-gray-400 contact-detail-text">(11) 1234-5678</p>
+                    <p class="text-gray-400 contact-detail-text">(11) 9876-5432 (WhatsApp)</p>
+                </div>
+                
+                <!-- Detalhe de Contato 3: Email -->
+                <div class="p-6 rounded-xl border-2 border-magico-roxo text-center hover:shadow-xl hover:shadow-magico-roxo-dark/30 transition duration-300">
+                    <div class="text-5xl text-magico-dourado mb-4">📧</div>
+                    <h3 class="text-xl font-bold mb-2 contact-detail-title">ENVIE UM FEITIÇO (EMAIL)</h3>
+                    <p class="text-gray-400 contact-detail-text">contato@moonbrewco.com</p>
+                    <p class="text-gray-400 contact-detail-text">eventos@moonbrewco.com</p>
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO DE CONTATO -->
+            <div class="bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl shadow-magico-roxo-dark/50 border-4 border-magico-roxo">
+                <h3 class="text-3xl font-title-large text-magico-dourado mb-8 text-center">Envie sua Mensagem Arcana</h3>
+                <form action="#" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <input type="text" placeholder="Seu Nome Mágico" class="w-full p-3 rounded-lg form-input text-sm text-white input-placeholder" required>
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Seu Email de Coruja" class="w-full p-3 rounded-lg form-input text-sm text-white input-placeholder" required>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Assunto do Feitiço" class="w-full p-3 rounded-lg form-input text-sm text-white input-placeholder" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Detalhes da sua Mensagem ou Poção..." rows="6" class="w-full p-3 rounded-lg form-textarea text-sm text-white input-placeholder" required></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="submit-btn bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-extrabold py-3 px-10 rounded-full transition duration-300 transform hover:scale-105 border-2 border-magico-dourado">
+                            <span>Enviar Poção Mensageira</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA PLACEHOLDER -->
+    <section class="map-area py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-title-large text-magico-dourado mb-8 text-center">Onde Nos Encontrar no Mapa Estelar</h3>
+            <div class="aspect-w-16 aspect-h-9 w-full h-96 rounded-2xl overflow-hidden border-4 border-magico-dourado shadow-2xl shadow-magico-roxo-dark/50">
+                <!-- Placeholder para o Mapa -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000.0!2d-46.6333094!3d-23.55052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5180cc38b0f7%3A0x6b4f74f762a04d4!2sS%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1678886400000!5m2!1spt-BR!2sbr" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+ <!-- RODAPÉ / FOOTER -->
+    <section class="footer-area bg-gray-900 border-t-4 border-magico-roxo-dark">
+        <div class="container mx-auto px-4 py-16 footer-widget-area">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-400">
+                
+                <!-- Col 1: Sobre -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Sobre a MoonBrew</h3>
+                    <p class="text-sm leading-relaxed font-description">Bem-vindo à nossa cafeteria, onde o aroma do café fresco se mistura com o conforto de um bom livro. Nossa missão é te proporcionar um espaço acolhedor e mágico.</p>
+                </div>
+
+                <!-- Col 2: Contato -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Contato</h3>
+                    <div class="space-y-3 text-sm font-contacts footer-info">
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado font-medium">📧 Email</span> coffeemoonbrew@outlook.com</p>
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado">📞 Telefone:</span> (11) 1234-5678</p>
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado">🏠 Endereço:</span> Av. dos Sonhos, 1508, Oz</p>
+                    </div>
+                </div>
+
+                <!-- Col 3: Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Funcionamento</h3>
+                    <p class="text-sm mb-4 font-description">Veja nosso horário de funcionamento abaixo:</p>
+                    <div class="space-y-2 text-sm font-contacts footer-info">
+                         <p>Segunda - Sexta ................. 08:30 às 17:30</p>
+                        <p>Sábado ................. 10:30 às 17:30</p>
+                        <p class="text-red-400 font-bold">Domingo ................. Fechado</p>
+                    </div>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Novidades</h3>
+                    <p class="text-sm mb-4 font-description">Inscreva-se para receber nossas novidades e promoções:</p>
+                    <form class="flex space-x-2 newsletter-form">
+                        <input type="email" id="mc-email" placeholder="Inscreva-se pelo seu email" class="w-full p-2 text-sm bg-gray-700 border border-magico-roxo rounded-lg text-white placeholder-gray-400" required>
+                        <button type="submit" class="bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-bold py-2 px-4 rounded-lg transition duration-300 text-sm flex-shrink-0 border border-magico-dourado">
+                           <span>Inscrever</span>
+                        </button>
+                    </form>
+
+                    <div class="mt-6 flex space-x-4 text-2xl text-magico-dourado footer-links">
+                        <!-- Ícones Placeholder para redes sociais (TikTok, Instagram, Twitter) -->
+                        <a href="#" class="hover:text-white transition" aria-label="TikTok">
+                            <span title="TikTok">🌌</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram">
+                            <span title="Instagram">✨</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Twitter">
+                            <span title="Twitter">🔮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright Bar -->
+        <div class="bg-bg-koffee py-4 border-t border-gray-800 footer-text-area">
+            <div class="container mx-auto px-4 text-center text-sm text-gray-500 font-contacts">
+                <span>&copy; Moon Brew&Co 2025. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

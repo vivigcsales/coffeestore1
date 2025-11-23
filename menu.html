@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonBrew&Co. - Menu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Importação das Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Emilys+Candy&family=Glass+Antiqua&family=Amatic+SC:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Configuração de cores customizadas
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'magico-roxo': '#4D2C91', // Roxo principal
+                        'magico-roxo-dark': '#7824FF', // Roxo escuro para contraste
+                        'magico-dourado': '#FFD700', // Dourado principal para destaque
+                        'fundo-escuro': '#0F172A', // Fundo escuro (Deep Blue)
+                        'bg-koffee': '#1E1E1E', // Cor escura do rodapé inferior
+                    },
+                    fontFamily: {
+                        // Títulos Maiores (h1, h2)
+                        'tittle-large': ['Emilys Candy', 'cursive'],
+                        // Contatos, Email, Número, Rodapé
+                        'contacts': ['Cinzel', 'serif'],
+                        // Informações Extras, Descrições do Menu
+                        'description': ['Glass Antiqua', 'cursive'],
+                         // Fonte padrão de fallback
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        /* Estilos customizados para aplicar as fontes e o design */
+        body {
+            font-family: 'Inter', sans-serif;
+            padding-top: 80px; /* Espaço para o header fixo */
+        }
+        
+        /* Aplicações de Fontes Customizadas */
+        .section-title h2, .breadcrumb-text h3 { font-family: 'Emilys Candy', cursive; }
+        .menu-item-name { font-family: 'Emilys Candy', cursive; }
+        .menu-item-desc, .nav-white { font-family: 'Glass Antiqua', cursive; }
+        .footer-info, .footer-widget-area h3 { font-family: 'Cinzel', serif; }
+
+        /* Estilo para Placeholders */
+        .header-search::placeholder, #mc-email::placeholder {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+
+        /* Estilo para o banner (Breadcrumb) */
+        .breadcrumb-area {
+            background-image: url('images/breadcrumbmenu.png');
+            background-size: cover;
+        }
+        
+        /* Efeito de overlay roxo */
+        .overlay-2 {
+            position: relative;
+        }
+        .overlay-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(120,36,255,0.7); /* magico-roxo com transparência */
+            z-index: 1;
+        }
+        .breadcrumb-text, .single-menu {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilo para itens do menu com foco mágico */
+        .single-menu {
+            transition: all 0.3s ease;
+            /* Fundo sutil para destacar */
+            background-color: #1a233b; /* Um tom de azul/roxo escuro mais claro que o fundo */
+            box-shadow: 0 0 15px rgba(120, 36, 255, 0.3); /* Sombra roxa sutil */
+        }
+        .single-menu:hover {
+            transform: translateY(-8px);
+            /* Sombra dourada e mais forte ao passar o mouse */
+            box-shadow: 0 15px 30px rgba(255, 230, 66, 0.4), 0 0 5px rgba(255, 230, 66, 0.8);
+            border-color: #FFE642; /* Borda dourada no hover */
+        }
+        .menu-image span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FFE642; /* magico-dourado */
+            color: #0F172A;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        
+          #logo {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            margin: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-fundo-escuro text-gray-200">
+
+    <!-- CABEÇALHO / HEADER (Tema Roxo e Dourado) -->
+    <header class="bg-magico-roxo bg-opacity-90 shadow-2xl fixed top-0 w-full z-50 transition duration-300 border-b border-magico-dourado/100">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center py-4">
+
+            <!-- Logo -->
+             <div class="logo flex items-center">
+    <a href="index.html" title="MoonBrew&Co. Home"><img id="logo" src="images/logotopo.png" alt="MoonBrew&Co." class="h-20 w-auto">
+    </a>
+</div>
+            
+            <!-- Menu de Navegação  -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Home</a>
+                <a href="menu.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Menu</a>
+                <a href="contact.html" class="nav-white hover:text-magico-dourado font-medium transition duration-200 text-xl">Contato</a>
+            </nav>
+            
+            <!-- Botão de Menu Mobile/Busca -->
+            <button class="text-white hover:text-magico-dourado md:hidden p-2 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+    
+
+                    <!-- Menu Mobile Button -->
+                    <button class="text-white hover:text-magico-dourado md:hidden p-2 rounded-lg mobile-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB / TÍTULO DA PÁGINA (Emilys Candy) -->
+    <section class="breadcrumb-area overlay-2 pt-20 pb-20 md:py-32 flex items-center justify-center text-center">
+        <div class="container mx-auto px-4 relative z-20">
+            <div class="breadcrumb-text">
+                <h3 class="text-5xl md:text-6xl font-title-large text-magico-dourado mb-4 uppercase tracking-widest">Menu Celestial</h3>
+                <div class="breadcrumb-bar text-lg font-contacts">
+                    <ul class="flex justify-center space-x-2">
+                        <li><a href="index.html" class="text-white hover:text-magico-dourado transition">Home</a></li>
+                        <li class="text-magico-dourado">/ Menu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA PRINCIPAL DO MENU -->
+    <section class="menu-area py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            
+            <!-- Título da Seção (Emilys Candy) -->
+            <div class="text-center max-w-2xl mx-auto mb-16 section-title">
+                <h2 class="text-4xl md:text-5xl font-title-large text-magico-dourado mb-4 tracking-wider">Explore Nossa Magia Líquida</h2>
+                <!-- Linha de separação roxa -->
+                <img src="https://placehold.co/150x5/7824FF/7824FF?text=." alt="" class="mx-auto my-2 rounded-full">
+                <!-- Descrição (Glass Antiqua) -->
+                <p class="text-gray-400 text-lg font-description mt-4">Poções e complementos magicamente preparados para despertar seus sentidos e guiar sua jornada.</p>
+            </div>
+
+            <!-- GRID DE ITENS DO MENU (4 COLUNAS EM DESKTOP) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Item 1: Poção do Sonho -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 18,50</span>
+                        <a href="#">
+                            <!-- Imagem Placeholder -->
+                            <img src="menu.images/pocaodosonho.png" alt="Poção do Sonho" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">POÇÃO DO SONHO</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Café, lavanda e mel. Uma dose de paz para sua jornada.</span>
+                </div>
+
+                <!-- Item 2: Elixir da Coragem -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 22,00</span>
+                        <a href="#">
+                            <img src="menu.images/elixircoragem.png" alt="Elixir da Coragem" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">ELIXIR DA CORAGEM</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Chá preto forte, especiarias e raspas de laranja energéticas.</span>
+                </div>
+
+                <!-- Item 3: Néctar da Sereia -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 17,50</span>
+                        <a href="#">
+                            <img src="menu.images/nectardasereia.png" alt="Néctar da Sereia" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">NÉCTAR DA SEREIA</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Limonada azul turquesa com um toque de hortelã.</span>
+                </div>
+
+                <!-- Item 4: Espresso Estelar -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 8,00</span>
+                        <a href="#">
+                            <img src="menu.images/expressoestelar.png" alt="Espresso Estelar" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">ESPRESSO ESTELAR</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Café de origem única, sabor profundo e acidez celestial.</span>
+                </div>
+                
+                <!-- Item 5: Cappuccino da Lua -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 16,00</span>
+                        <a href="#">
+                            <img src="menu.images/cappuccino.png" alt="Cappuccino da Lua" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">CAPPUCCINO DA LUA</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Café, leite vaporizado, toque de canela celestial.</span>
+                </div>
+
+                <!-- Item 6: Latte Encantado -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 12,00</span>
+                        <a href="#">
+                            <img src="menu.images/latte.png" alt="Latte Encantado" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">LATTE ENCANTADO</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Latte clássico com arte de espuma em formato de estrela.</span>
+                </div>
+
+                <!-- Item 7: Bolo de Geada -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 14,00</span>
+                        <a href="#">
+                            <img src="menu.images/bolo.png" alt="Bolo de Geada" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">BOLO DE GEADA</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Bolo de baunilha com glacê azul iridescente.</span>
+                </div>
+
+                <!-- Item 8: Cookie da Fortuna -->
+                <div class="p-4 rounded-xl shadow-lg border-2 border-magico-roxo transition duration-300 single-menu text-center">
+                    <div class="menu-image relative mb-4">
+                        <span class="text-sm">R$ 9,50</span>
+                        <a href="#">
+                            <img src="menu.images/cookie.png" alt="Cookie da Fortuna" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 menu-item-name">
+                        <a href="#" class="text-magico-dourado hover:text-white transition uppercase">COOKIE DA FORTUNA</a>
+                    </h4>
+                    <!-- Descrição (Glass Antiqua) -->
+                    <span class="text-sm text-gray-400 block menu-item-desc font-description">Cookie de chocolate com um 'segredo' crocante.</span>
+                </div>
+                
+            </div>
+
+            <!-- Botão de exploração (Roxo com texto Dourado) -->
+            <div class="text-center pt-16 menu-btn">
+                <a href="#" class="inline-block bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-extrabold py-3 px-10 rounded-full shadow-2xl shadow-magico-roxo-dark/50 transition duration-300 transform hover:scale-105 border-2 border-magico-dourado default-btn">
+                    <span>Explore mais da magia do nosso menu</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+ <!-- RODAPÉ / FOOTER -->
+    <section class="footer-area bg-gray-900 border-t-4 border-magico-roxo-dark">
+        <div class="container mx-auto px-4 py-16 footer-widget-area">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-400">
+                
+                <!-- Col 1: Sobre -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Sobre a MoonBrew</h3>
+                    <p class="text-sm leading-relaxed font-description">Bem-vindo à nossa cafeteria, onde o aroma do café fresco se mistura com o conforto de um bom livro. Nossa missão é te proporcionar um espaço acolhedor e mágico.</p>
+                </div>
+
+                <!-- Col 2: Contato -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Contato</h3>
+                    <div class="space-y-3 text-sm font-contacts footer-info">
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado font-medium">📧 Email</span> coffeemoonbrew@outlook.com</p>
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado">📞 Telefone:</span> (11) 1234-5678</p>
+                        <p class="flex-items-center space-x-2"><span class="text-magico-dourado">🏠 Endereço:</span> Av. dos Sonhos, 1508, Oz</p>
+                    </div>
+                </div>
+
+                <!-- Col 3: Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Funcionamento</h3>
+                    <p class="text-sm mb-4 font-description">Veja nosso horário de funcionamento abaixo:</p>
+                    <div class="space-y-2 text-sm font-contacts footer-info">
+                         <p>Segunda - Sexta ................. 08:30 às 17:30</p>
+                        <p>Sábado ................. 10:30 às 17:30</p>
+                        <p class="text-red-400 font-bold">Domingo ................. Fechado</p>
+                    </div>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h3 class="text-xl font-contacts text-magico-dourado mb-5">Novidades</h3>
+                    <p class="text-sm mb-4 font-description">Inscreva-se para receber nossas novidades e promoções:</p>
+                    <form class="flex space-x-2 newsletter-form">
+                        <input type="email" id="mc-email" placeholder="Inscreva-se pelo seu email" class="w-full p-2 text-sm bg-gray-700 border border-magico-roxo rounded-lg text-white placeholder-gray-400" required>
+                        <button type="submit" class="bg-magico-roxo hover:bg-magico-roxo-dark text-magico-dourado font-bold py-2 px-4 rounded-lg transition duration-300 text-sm flex-shrink-0 border border-magico-dourado">
+                           <span>Inscrever</span>
+                        </button>
+                    </form>
+
+                    <div class="mt-6 flex space-x-4 text-2xl text-magico-dourado footer-links">
+                        <!-- Ícones Placeholder para redes sociais (TikTok, Instagram, Twitter) -->
+                        <a href="#" class="hover:text-white transition" aria-label="TikTok">
+                            <span title="TikTok">🌌</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram">
+                            <span title="Instagram">✨</span>
+                        </a>
+                        <a href="#" class="hover:text-white transition" aria-label="Twitter">
+                            <span title="Twitter">🔮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright Bar -->
+        <div class="bg-bg-koffee py-4 border-t border-gray-800 footer-text-area">
+            <div class="container mx-auto px-4 text-center text-sm text-gray-500 font-contacts">
+                <span>&copy; Moon Brew&Co 2025. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
