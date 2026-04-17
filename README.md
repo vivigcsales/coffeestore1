@@ -35,6 +35,6 @@ https://vivigcsales.github.io/coffeestore1/
 ## 👩‍💻 Autora
 Desenvolvido por Vitória Sales.
 
-LinkedIn: www.linkedin.com/in/vitória-sales-8251272ab
+LinkedIn:www.linkedin.com/in/vvitoria-sales
 
 > Este projeto foi criado para fins de estudo e prática de desenvolvimento.
